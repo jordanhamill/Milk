@@ -10,6 +10,11 @@
 		7291860A1B9C94DA00A866FC /* Milk.h in Headers */ = {isa = PBXBuildFile; fileRef = 729186091B9C94DA00A866FC /* Milk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		729186111B9C94DA00A866FC /* Milk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729186061B9C94DA00A866FC /* Milk.framework */; settings = {ASSET_TAGS = (); }; };
 		729186161B9C94DA00A866FC /* MilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186151B9C94DA00A866FC /* MilkTests.swift */; };
+		729186211B9C94EE00A866FC /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186201B9C94EE00A866FC /* Serializable.swift */; settings = {ASSET_TAGS = (); }; };
+		729186231B9C950700A866FC /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186221B9C950700A866FC /* Serializer.swift */; settings = {ASSET_TAGS = (); }; };
+		729186251B9C952B00A866FC /* PropertyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186241B9C952B00A866FC /* PropertyMapping.swift */; settings = {ASSET_TAGS = (); }; };
+		729186271B9C955B00A866FC /* SerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186261B9C955B00A866FC /* SerializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		729186291B9C957500A866FC /* DeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186281B9C957500A866FC /* DeserializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		729186101B9C94DA00A866FC /* MilkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		729186151B9C94DA00A866FC /* MilkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkTests.swift; sourceTree = "<group>"; };
 		729186171B9C94DA00A866FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		729186201B9C94EE00A866FC /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		729186221B9C950700A866FC /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		729186241B9C952B00A866FC /* PropertyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyMapping.swift; sourceTree = "<group>"; };
+		729186261B9C955B00A866FC /* SerializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationOperators.swift; sourceTree = "<group>"; };
+		729186281B9C957500A866FC /* DeserializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializationOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +81,13 @@
 		729186081B9C94DA00A866FC /* Milk */ = {
 			isa = PBXGroup;
 			children = (
-				729186091B9C94DA00A866FC /* Milk.h */,
+				729186281B9C957500A866FC /* DeserializationOperators.swift */,
 				7291860B1B9C94DA00A866FC /* Info.plist */,
+				729186091B9C94DA00A866FC /* Milk.h */,
+				729186241B9C952B00A866FC /* PropertyMapping.swift */,
+				729186201B9C94EE00A866FC /* Serializable.swift */,
+				729186261B9C955B00A866FC /* SerializationOperators.swift */,
+				729186221B9C950700A866FC /* Serializer.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -142,6 +157,7 @@
 		729185FD1B9C94DA00A866FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = JordanHamill;
 				TargetAttributes = {
@@ -193,6 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				729186271B9C955B00A866FC /* SerializationOperators.swift in Sources */,
+				729186251B9C952B00A866FC /* PropertyMapping.swift in Sources */,
+				729186291B9C957500A866FC /* DeserializationOperators.swift in Sources */,
+				729186211B9C94EE00A866FC /* Serializable.swift in Sources */,
+				729186231B9C950700A866FC /* Serializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,28 +328,33 @@
 		7291861B1B9C94DA00A866FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Milk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanhamill.Milk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7291861C1B9C94DA00A866FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Milk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanhamill.Milk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
