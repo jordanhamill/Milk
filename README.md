@@ -59,7 +59,7 @@ if let data = try jsonSerializer.toData() {
 
 ## Usage
 
-Milk comes with a JSON serializer `SwiftyJSONMilk` which uses [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) under the hood. This can be used as is or as a reference implementation for other serializers.
+[SwiftyJSONMilk](https://github.com/jordanhamill/SwiftyJSONMilk) is a JSON serializer implementation which uses [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) under the hood. This can be used as is or as a reference implementation for other serializers.
 
 ## Operators
 
