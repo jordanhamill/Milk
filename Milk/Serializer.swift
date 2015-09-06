@@ -112,8 +112,8 @@ public protocol Serializer: class {
 
     func removeValueForKeyPath(keyPath: String)
 
-    func toData(error: NSErrorPointer) throws -> NSData?
-    static func fromData(data: NSData, error: NSErrorPointer) throws -> Self?
+    func toData() throws -> NSData?
+    static func fromData(data: NSData) throws -> Self?
     
     subscript(keyPath: String) -> PropertyMapping { get }
 }
