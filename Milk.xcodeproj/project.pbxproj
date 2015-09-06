@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7278F9AF1B9CDFF3002C63CA /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7278F9AE1B9CDFF3002C63CA /* Optionals.swift */; settings = {ASSET_TAGS = (); }; };
 		7291860A1B9C94DA00A866FC /* Milk.h in Headers */ = {isa = PBXBuildFile; fileRef = 729186091B9C94DA00A866FC /* Milk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		729186111B9C94DA00A866FC /* Milk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729186061B9C94DA00A866FC /* Milk.framework */; settings = {ASSET_TAGS = (); }; };
 		729186161B9C94DA00A866FC /* MilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186151B9C94DA00A866FC /* MilkTests.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7278F9AE1B9CDFF3002C63CA /* Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optionals.swift; sourceTree = "<group>"; };
 		729186061B9C94DA00A866FC /* Milk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Milk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		729186091B9C94DA00A866FC /* Milk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Milk.h; sourceTree = "<group>"; };
 		7291860B1B9C94DA00A866FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				729186241B9C952B00A866FC /* PropertyMapping.swift */,
 				729186201B9C94EE00A866FC /* Serializable.swift */,
 				729186221B9C950700A866FC /* Serializer.swift */,
+				7278F9AE1B9CDFF3002C63CA /* Optionals.swift */,
 			);
 			path = Milk;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				7291862B1B9C99EE00A866FC /* KeylessDeserializationOperators.swift in Sources */,
 				729186271B9C955B00A866FC /* KeyedSerializationOperators.swift in Sources */,
 				729186251B9C952B00A866FC /* PropertyMapping.swift in Sources */,
+				7278F9AF1B9CDFF3002C63CA /* Optionals.swift in Sources */,
 				729186291B9C957500A866FC /* KeyedDeserializationOperators.swift in Sources */,
 				7291862D1B9C99F900A866FC /* KeylessSerializationOperators.swift in Sources */,
 				729186211B9C94EE00A866FC /* Serializable.swift in Sources */,
@@ -409,6 +413,7 @@
 				7291861C1B9C94DA00A866FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7291861D1B9C94DA00A866FC /* Build configuration list for PBXNativeTarget "MilkTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				7291861F1B9C94DA00A866FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

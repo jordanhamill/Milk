@@ -111,6 +111,7 @@ public protocol Serializer: class {
     func serializeOptional(value: [String]?, forKeyPath keyPath: String)
 
     func removeValueForKeyPath(keyPath: String)
+    func removeAllValues()
 
     func toData() throws -> NSData?
     static func fromData(data: NSData) throws -> Self?
