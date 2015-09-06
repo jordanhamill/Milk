@@ -1,5 +1,5 @@
 //
-//  DeserializationOperators.swift
+//  KeyedDeserializationOperators.swift
 //  Milk
 //
 //  Created by Jordan Hamill on 06/09/2015.

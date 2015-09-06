@@ -13,8 +13,10 @@
 		729186211B9C94EE00A866FC /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186201B9C94EE00A866FC /* Serializable.swift */; settings = {ASSET_TAGS = (); }; };
 		729186231B9C950700A866FC /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186221B9C950700A866FC /* Serializer.swift */; settings = {ASSET_TAGS = (); }; };
 		729186251B9C952B00A866FC /* PropertyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186241B9C952B00A866FC /* PropertyMapping.swift */; settings = {ASSET_TAGS = (); }; };
-		729186271B9C955B00A866FC /* SerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186261B9C955B00A866FC /* SerializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
-		729186291B9C957500A866FC /* DeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186281B9C957500A866FC /* DeserializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		729186271B9C955B00A866FC /* KeyedSerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186261B9C955B00A866FC /* KeyedSerializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		729186291B9C957500A866FC /* KeyedDeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186281B9C957500A866FC /* KeyedDeserializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		7291862B1B9C99EE00A866FC /* KeylessDeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291862A1B9C99EE00A866FC /* KeylessDeserializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		7291862D1B9C99F900A866FC /* KeylessSerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291862C1B9C99F900A866FC /* KeylessSerializationOperators.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,10 @@
 		729186201B9C94EE00A866FC /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		729186221B9C950700A866FC /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		729186241B9C952B00A866FC /* PropertyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyMapping.swift; sourceTree = "<group>"; };
-		729186261B9C955B00A866FC /* SerializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationOperators.swift; sourceTree = "<group>"; };
-		729186281B9C957500A866FC /* DeserializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializationOperators.swift; sourceTree = "<group>"; };
+		729186261B9C955B00A866FC /* KeyedSerializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedSerializationOperators.swift; sourceTree = "<group>"; };
+		729186281B9C957500A866FC /* KeyedDeserializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedDeserializationOperators.swift; sourceTree = "<group>"; };
+		7291862A1B9C99EE00A866FC /* KeylessDeserializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeylessDeserializationOperators.swift; sourceTree = "<group>"; };
+		7291862C1B9C99F900A866FC /* KeylessSerializationOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeylessSerializationOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +85,14 @@
 		729186081B9C94DA00A866FC /* Milk */ = {
 			isa = PBXGroup;
 			children = (
-				729186281B9C957500A866FC /* DeserializationOperators.swift */,
 				7291860B1B9C94DA00A866FC /* Info.plist */,
+				729186281B9C957500A866FC /* KeyedDeserializationOperators.swift */,
+				729186261B9C955B00A866FC /* KeyedSerializationOperators.swift */,
+				7291862A1B9C99EE00A866FC /* KeylessDeserializationOperators.swift */,
+				7291862C1B9C99F900A866FC /* KeylessSerializationOperators.swift */,
 				729186091B9C94DA00A866FC /* Milk.h */,
 				729186241B9C952B00A866FC /* PropertyMapping.swift */,
 				729186201B9C94EE00A866FC /* Serializable.swift */,
-				729186261B9C955B00A866FC /* SerializationOperators.swift */,
 				729186221B9C950700A866FC /* Serializer.swift */,
 			);
 			path = Milk;
@@ -209,9 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729186271B9C955B00A866FC /* SerializationOperators.swift in Sources */,
+				7291862B1B9C99EE00A866FC /* KeylessDeserializationOperators.swift in Sources */,
+				729186271B9C955B00A866FC /* KeyedSerializationOperators.swift in Sources */,
 				729186251B9C952B00A866FC /* PropertyMapping.swift in Sources */,
-				729186291B9C957500A866FC /* DeserializationOperators.swift in Sources */,
+				729186291B9C957500A866FC /* KeyedDeserializationOperators.swift in Sources */,
+				7291862D1B9C99F900A866FC /* KeylessSerializationOperators.swift in Sources */,
 				729186211B9C94EE00A866FC /* Serializable.swift in Sources */,
 				729186231B9C950700A866FC /* Serializer.swift in Sources */,
 			);

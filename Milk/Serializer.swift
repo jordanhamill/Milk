@@ -61,7 +61,7 @@ public protocol Serializer: class {
     func serialize(values: [Double], forKeyPath keyPath: String)
     func serialize(values: [String], forKeyPath keyPath: String)
 
-    func deserializeForKeyPath<T: Serializable>() -> [T]?
+    func deserialize<T: Serializable>() -> [T]?
     func deserializeForKeyPath<T: Serializable>(keyPath: String) -> [T]?
     func deserializeForKeyPath(keyPath: String) -> [Bool]?
     func deserializeForKeyPath(keyPath: String) -> [Int16]?
