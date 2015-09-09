@@ -8,6 +8,15 @@
 
 import Foundation
 
+/**
+    A format agonostic set of methods for serializing and deserializing fundamental
+    types, collections and any type `T` that conforms to `Serializable`.
+
+    Implementations are responsible for converting and storing the values in their
+    desired format. e.g. A JSON dictionary.
+
+    - note: Not all `Serializer` implementations have to support key paths. Some may just support a singular path "value".
+*/
 public protocol Serializer: class {
 
     // MARK: Serialization
@@ -110,11 +119,40 @@ public protocol Serializer: class {
     func serializeOptional(value: [Double]?, forKeyPath keyPath: String)
     func serializeOptional(value: [String]?, forKeyPath keyPath: String)
 
+    /**
+        Remove a single serialized value.
+
+        - parameter keyPath: The key path of the value to remove. A key path is of the format "path.to.value"
+    */
     func removeValueForKeyPath(keyPath: String)
+
+    /**
+        Remove all currently stored values.
+    */
     func removeAllValues()
 
+    /**
+        Transforms the internal format to a binary representation.
+
+        - returns: The NSData if the current format is valid and can be transformed. Alternatively this method can throw an error.
+    */
     func toData() throws -> NSData?
+
+    /**
+        Transforms a binary representation of the format into a `Serializer` instance ready to deserialize objects.
+
+        - parameter data: Data which must be in the same format as that returned from `toData()`.
+
+        - returns: If the data is valid, a `Serializer` instance ready for deserialization. If the data is invalid an error can be thrown.
+    */
     static func fromData(data: NSData) throws -> Self?
-    
+
+    /**
+        A convienence method that enables a concise serialization and deserialization syntax.
+
+        - parameter keyPath: The key path of the value to serialize or deserialize. A key path is of the format "path.to.value"
+
+        - returns: A `PropertyMapping` object.
+    */
     subscript(keyPath: String) -> PropertyMapping { get }
 }

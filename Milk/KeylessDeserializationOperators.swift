@@ -8,10 +8,16 @@
 
 import Foundation
 
+/**
+    Deserialize a `Serializable` value of type T.
+*/
 public prefix func <-<T: Serializable> (right: Serializer) -> T? {
     return right.deserialize()
 }
 
+/**
+    Deserialize a collection of `Serializable` values.
+*/
 public prefix func <-<T: Serializable> (right: Serializer) -> [T]? {
     return right.deserialize()
 }
