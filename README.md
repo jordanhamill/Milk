@@ -4,6 +4,8 @@ Milk for your Swift serialization - A common set of simple interfaces and operat
 
 The interfaces provided by Milk allow you to serialize both `class` and `struct` types. Properties can be both immutable (`let`) and mutable (`var`) without having to use implicit unwraping `!`.
 
+Milk is meant to be format agnostic, providing an interface just as capable of serializing to JSON as it is to binary. For the sake of documentation, most of the examples given here will refer to serializing to and from JSON.
+
 *Note: Milk requires Swift 2.0 as it uses protocol extensions to provide default implementations of common methods.*
 
 ### Example
@@ -13,43 +15,43 @@ The interfaces provided by Milk allow you to serialize both `class` and `struct`
 struct Person {
     let name: String
     let age: Int
-    let weight: Float
+    let height: Float
 
-    init(age: Int, name: String, height: weight) {
-        self.age = age
+    init(age: Int, name: String, height: height) {
         self.name = name
-        self.weight = weight
+        self.age = age
+        self.height = height
     }
 }
 
 extension Person: Serializable {
-    private init?(name: String?, age: Int?, weight: Float?) {
-        if let name = name, age = age, weight = weight {
-            self.age = age
+    private init?(name: String?, age: Int?, height: Float?) {
+        if let name = name, age = age, height = height {
             self.name = name
-            self.weight = weight
+            self.age = age
+            self.height = height
         } else {
             return nil
         }
     }
 
     func serialize(serializer: Serializer) {
-        serializer["age"] <- age
         serializer["name"] <- name
-        serializer["weight"] <- weight
+        serializer["age"] <- age
+        serializer["height"] <- height
     }
 
-    static func deserialize(deserializer: Serializer) -> Patient? {
+    static func deserialize(deserializer: Serializer) -> Person? {
         return Person(name:   <-deserializer["name"],
                       age:    <-deserializer["age"],
-                      weight: <-deserializer["weight"])
+                      height: <-deserializer["height"])
     }
 }
 ```
 
 ```swift
 let jsonSerializer: Serializer = JSONSerializer()
-let person: Person = Person(name: "Matt", age: 12, weight: 71.2)
+let person: Person = Person(name: "Matt", age: 12, height: 71.2)
 person.serialize(jsonSerializer)
 
 if let data = try jsonSerializer.toData() {
@@ -57,46 +59,62 @@ if let data = try jsonSerializer.toData() {
 }
 ```
 
-## Usage
-
 [SwiftyJSONMilk](https://github.com/jordanhamill/SwiftyJSONMilk) is a JSON serializer implementation which uses [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) under the hood. This can be used as is or as a reference implementation for other serializers.
 
-## Operators
+## Installation
+
+### CocoaPods
+
+Add the following to your `Podfile`
+
+```ruby
+use_frameworks!
+
+pod 'Milk'
+```
+### Carthage
+
+Add the following to your `Cartfile`
+
+```ruby
+github "jordanhamill/Milk"
+```
+
+
+## Usage
+### Operators
 
 As you may have noticed in the above example, Milk provides several prefix and infix operators for convenience. These provide a less verbose way of using a `Serializer`.
 
 Rather than typing out
 
 ```swift
-serializer.serializeOptional(myOptionalInt, forKeyPath: "age")
+let age: Int? = 12
+serializer.serializeOptional(age, forKeyPath: "age")
 ```
 
 You can use
 ```swift
-serializer["age"] <- myOptionalInt
+serializer["age"] <- age
 ```
  Neat, eh?
 
 And for deserialization:
 ```swift
-let age: Int? = deserializer.deserializeForKeyPath()
+let age: Int? = deserializer.deserializeForKeyPath("age")
 //vs
 let age: Int? = <-deserializer["age"]
 ```
 
-This works really well for optional constructors:
+This works really well with optional constructors:
 
 ```swift
 extension Person: Serializable {
-    enum SerializationError: ErrorType {
-        case MissingData
-    }
-
-    private init?(name: String?, age: Int?, weight: Float?) {
-        if let name = name, age = age, weight = weight {
+    private init?(name: String?, age: Int?, height: Float?) {
+        if let name = name, age = age, height = height {
             self.age = age
             self.name = name
-            self.weight = weight
+            self.height = height
         } else {
             return nil
         }
@@ -105,20 +123,91 @@ extension Person: Serializable {
     static func deserialize(deserializer: Serializer) -> Patient? {
         return Person(name:   <-deserializer["name"],
                       age:    <-deserializer["age"],
-                      weight: <-deserializer["weight"])
+                      height: <-deserializer["height"])
     }
 }
 ```
 
-## Implementing `Serializable`
+### Keyed values
 
-Any `class` or `struct` that conforms to `Serializable` will be serializable by a `Serializer`.
+Any model implementing `Serializable` should use the keyPath methods to serialize each required property.
 
-You can also nest `Serializable` objects.
+### Root objects
 
-## Creating your own `Serializer`
+Most JSON API endpoints will either return an array of items or a singular root level dictionary.
+`Serializer` provides several keypath-less methods for serializing and deserializing these root level items.
 
-The `Serializer` protocol requires you to implement the methods to serialize and deserialize the fundamental base types, `Int`s, `Float`, `Double`, `String`, `Bool`.
+ ```swift
+ // Serialize an array as the root object
+ func serialize<T: Serializable>(values: [T])
+ func deserialize<T: Serializable>() -> [T]?
+
+ // shorthand
+
+ let friends: [Person]
+ let serializer: Serializer
+ serializer <- friends
+
+ let friends: [Person]?
+ let deserializer: Serializer
+ friends <-deserializer
+ ```
+
+ ```swift
+ // Serialize a dictionary as the root object
+ func serialize<T: Serializable>(value: T)
+ func deserialize<T: Serializable>() -> T?
+
+// shorthand
+
+let person: Person
+let serializer: Serializer
+serializer <- person
+
+let person: Person?
+let deserializer: Serializer
+person <-deserializer
+
+ ```
+
+### Implementing `Serializable`
+
+Any `class`, `struct` or `enum` that conforms to `Serializable` will be serializable by a `Serializer`.
+
+You can nest `Serializable` objects. Below is an example of nesting a required `Person` value, *owner*, as well as the non-required *previous owners* which is held as an optional collection of `Person` objects.
+
+```swift
+struct Car {
+    let manufacturer: String
+    let model: String
+    let owner: Person
+    let previousOwners: [Person]?
+}
+
+extension Car: Serializable {
+    private init?(manufacturer: String?, model: Int?, owner: Person?, previousOwners: [Person]?) {
+        if let manufacturer = manufacturer, model = model, owner = owner {
+            self.manufacturer = manufacturer
+            self.model = model
+            self.owner = owner
+            self.previousOwners = previousOwners
+        } else {
+            return nil
+        }
+    }
+
+    static func deserialize(deserializer: Serializer) -> Car? {
+        return Car(manufacturer:   <-deserializer["manufacturer"],
+                   model:          <-deserializer["model"],
+                   owner:          <-deserializer["owner"],
+                   previousOwners: <-deserializer["previousOwners"])
+    }
+}
+```
+
+### Creating your own `Serializer`
+
+The `Serializer` protocol requires you to implement a set of methods to serialize and deserialize the fundamental base types, `Int`s, `Float`, `Double`, `String`, `Bool`.
 
 ```swift
 
