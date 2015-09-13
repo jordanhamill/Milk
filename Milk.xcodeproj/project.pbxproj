@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720696C81BA5DA1D00FA7AFE /* KeyedDeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186281B9C957500A866FC /* KeyedDeserializationOperators.swift */; };
+		720696C91BA5DA1D00FA7AFE /* KeyedSerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186261B9C955B00A866FC /* KeyedSerializationOperators.swift */; };
+		720696CA1BA5DA1D00FA7AFE /* KeylessDeserializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291862A1B9C99EE00A866FC /* KeylessDeserializationOperators.swift */; };
+		720696CB1BA5DA1D00FA7AFE /* KeylessSerializationOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291862C1B9C99F900A866FC /* KeylessSerializationOperators.swift */; };
+		720696CC1BA5DA1D00FA7AFE /* PropertyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186241B9C952B00A866FC /* PropertyMapping.swift */; };
+		720696CD1BA5DA1D00FA7AFE /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186201B9C94EE00A866FC /* Serializable.swift */; };
+		720696CE1BA5DA1D00FA7AFE /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186221B9C950700A866FC /* Serializer.swift */; };
+		720696CF1BA5DA1D00FA7AFE /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7278F9AE1B9CDFF3002C63CA /* Optionals.swift */; };
+		720696D01BA5DA2A00FA7AFE /* MilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729186151B9C94DA00A866FC /* MilkTests.swift */; };
 		7278F9AF1B9CDFF3002C63CA /* Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7278F9AE1B9CDFF3002C63CA /* Optionals.swift */; settings = {ASSET_TAGS = (); }; };
 		7291860A1B9C94DA00A866FC /* Milk.h in Headers */ = {isa = PBXBuildFile; fileRef = 729186091B9C94DA00A866FC /* Milk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		729186111B9C94DA00A866FC /* Milk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729186061B9C94DA00A866FC /* Milk.framework */; settings = {ASSET_TAGS = (); }; };
@@ -333,6 +342,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720696C81BA5DA1D00FA7AFE /* KeyedDeserializationOperators.swift in Sources */,
+				720696C91BA5DA1D00FA7AFE /* KeyedSerializationOperators.swift in Sources */,
+				720696CA1BA5DA1D00FA7AFE /* KeylessDeserializationOperators.swift in Sources */,
+				720696CB1BA5DA1D00FA7AFE /* KeylessSerializationOperators.swift in Sources */,
+				720696CC1BA5DA1D00FA7AFE /* PropertyMapping.swift in Sources */,
+				720696CD1BA5DA1D00FA7AFE /* Serializable.swift in Sources */,
+				720696CE1BA5DA1D00FA7AFE /* Serializer.swift in Sources */,
+				720696CF1BA5DA1D00FA7AFE /* Optionals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720696D01BA5DA2A00FA7AFE /* MilkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

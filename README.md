@@ -101,7 +101,7 @@ serializer["age"] <- age
 
 And for deserialization:
 ```swift
-let age: Int? = deserializer.deserializeForKeyPath("age")
+let age: Int? = deserializer.deserializeValueForKeyPath("age")
 //vs
 let age: Int? = <-deserializer["age"]
 ```
@@ -140,7 +140,7 @@ Most JSON API endpoints will either return an array of items or a singular root 
  ```swift
  // Serialize an array as the root object
  func serialize<T: Serializable>(values: [T])
- func deserialize<T: Serializable>() -> [T]?
+ func deserializeValue<T: Serializable>() -> [T]?
 
  // shorthand
 
@@ -156,7 +156,7 @@ Most JSON API endpoints will either return an array of items or a singular root 
  ```swift
  // Serialize a dictionary as the root object
  func serialize<T: Serializable>(value: T)
- func deserialize<T: Serializable>() -> T?
+ func deserializeValue<T: Serializable>() -> T?
 
 // shorthand
 
@@ -228,18 +228,18 @@ func serialize(value: String, forKeyPath keyPath: String)
 
 // MARK: Deserialization
 
-func deserializeForKeyPath(keyPath: String) -> Bool?
-func deserializeForKeyPath(keyPath: String) -> Int16?
-func deserializeForKeyPath(keyPath: String) -> Int32?
-func deserializeForKeyPath(keyPath: String) -> Int64?
-func deserializeForKeyPath(keyPath: String) -> Int?
-func deserializeForKeyPath(keyPath: String) -> UInt16?
-func deserializeForKeyPath(keyPath: String) -> UInt32?
-func deserializeForKeyPath(keyPath: String) -> UInt64?
-func deserializeForKeyPath(keyPath: String) -> UInt?
-func deserializeForKeyPath(keyPath: String) -> Float?
-func deserializeForKeyPath(keyPath: String) -> Double?
-func deserializeForKeyPath(keyPath: String) -> String?
+func deserializeValueForKeyPath(keyPath: String) -> Bool?
+func deserializeValueForKeyPath(keyPath: String) -> Int16?
+func deserializeValueForKeyPath(keyPath: String) -> Int32?
+func deserializeValueForKeyPath(keyPath: String) -> Int64?
+func deserializeValueForKeyPath(keyPath: String) -> Int?
+func deserializeValueForKeyPath(keyPath: String) -> UInt16?
+func deserializeValueForKeyPath(keyPath: String) -> UInt32?
+func deserializeValueForKeyPath(keyPath: String) -> UInt64?
+func deserializeValueForKeyPath(keyPath: String) -> UInt?
+func deserializeValueForKeyPath(keyPath: String) -> Float?
+func deserializeValueForKeyPath(keyPath: String) -> Double?
+func deserializeValueForKeyPath(keyPath: String) -> String?
 
 ```
 
@@ -250,8 +250,8 @@ You must also provide implementations to work with any type `T` that conforms to
 func serialize<T: Serializable>(value: T)
 func serialize<T: Serializable>(value: T, forKeyPath keyPath: String)
 
-func deserialize<T: Serializable>() -> T?
-func deserializeForKeyPath<T: Serializable>(keyPath: String) -> T?
+func deserializeValue<T: Serializable>() -> T?
+func deserializeValueForKeyPath<T: Serializable>(keyPath: String) -> T?
 
 ```
 
@@ -273,18 +273,18 @@ func serialize(values: [Float], forKeyPath keyPath: String)
 func serialize(values: [Double], forKeyPath keyPath: String)
 func serialize(values: [String], forKeyPath keyPath: String)
 
-func deserialize<T: Serializable>() -> [T]?
-func deserializeForKeyPath<T: Serializable>(keyPath: String) -> [T]?
-func deserializeForKeyPath(keyPath: String) -> [Bool]?
-func deserializeForKeyPath(keyPath: String) -> [Int16]?
-func deserializeForKeyPath(keyPath: String) -> [Int32]?
-func deserializeForKeyPath(keyPath: String) -> [Int64]?
-func deserializeForKeyPath(keyPath: String) -> [Int]?
-func deserializeForKeyPath(keyPath: String) -> [UInt16]?
-func deserializeForKeyPath(keyPath: String) -> [UInt32]?
-func deserializeForKeyPath(keyPath: String) -> [UInt64]?
-func deserializeForKeyPath(keyPath: String) -> [UInt]?
-func deserializeForKeyPath(keyPath: String) -> [Float]?
-func deserializeForKeyPath(keyPath: String) -> [Double]?
-func deserializeForKeyPath(keyPath: String) -> [String]?
+func deserializeValue<T: Serializable>() -> [T]?
+func deserializeValueForKeyPath<T: Serializable>(keyPath: String) -> [T]?
+func deserializeValueForKeyPath(keyPath: String) -> [Bool]?
+func deserializeValueForKeyPath(keyPath: String) -> [Int16]?
+func deserializeValueForKeyPath(keyPath: String) -> [Int32]?
+func deserializeValueForKeyPath(keyPath: String) -> [Int64]?
+func deserializeValueForKeyPath(keyPath: String) -> [Int]?
+func deserializeValueForKeyPath(keyPath: String) -> [UInt16]?
+func deserializeValueForKeyPath(keyPath: String) -> [UInt32]?
+func deserializeValueForKeyPath(keyPath: String) -> [UInt64]?
+func deserializeValueForKeyPath(keyPath: String) -> [UInt]?
+func deserializeValueForKeyPath(keyPath: String) -> [Float]?
+func deserializeValueForKeyPath(keyPath: String) -> [Double]?
+func deserializeValueForKeyPath(keyPath: String) -> [String]?
 ```

@@ -38,20 +38,20 @@ public protocol Serializer: class {
 
     // MARK: Deserialization
 
-    func deserialize<T: Serializable>() -> T?
-    func deserializeForKeyPath<T: Serializable>(keyPath: String) -> T?
-    func deserializeForKeyPath(keyPath: String) -> Bool?
-    func deserializeForKeyPath(keyPath: String) -> Int16?
-    func deserializeForKeyPath(keyPath: String) -> Int32?
-    func deserializeForKeyPath(keyPath: String) -> Int64?
-    func deserializeForKeyPath(keyPath: String) -> Int?
-    func deserializeForKeyPath(keyPath: String) -> UInt16?
-    func deserializeForKeyPath(keyPath: String) -> UInt32?
-    func deserializeForKeyPath(keyPath: String) -> UInt64?
-    func deserializeForKeyPath(keyPath: String) -> UInt?
-    func deserializeForKeyPath(keyPath: String) -> Float?
-    func deserializeForKeyPath(keyPath: String) -> Double?
-    func deserializeForKeyPath(keyPath: String) -> String?
+    func deserializeValue<T: Serializable>() -> T?
+    func deserializeValueForKeyPath<T: Serializable>(keyPath: String) -> T?
+    func deserializeValueForKeyPath(keyPath: String) -> Bool?
+    func deserializeValueForKeyPath(keyPath: String) -> Int16?
+    func deserializeValueForKeyPath(keyPath: String) -> Int32?
+    func deserializeValueForKeyPath(keyPath: String) -> Int64?
+    func deserializeValueForKeyPath(keyPath: String) -> Int?
+    func deserializeValueForKeyPath(keyPath: String) -> UInt16?
+    func deserializeValueForKeyPath(keyPath: String) -> UInt32?
+    func deserializeValueForKeyPath(keyPath: String) -> UInt64?
+    func deserializeValueForKeyPath(keyPath: String) -> UInt?
+    func deserializeValueForKeyPath(keyPath: String) -> Float?
+    func deserializeValueForKeyPath(keyPath: String) -> Double?
+    func deserializeValueForKeyPath(keyPath: String) -> String?
 
     // MARK: Collections
 
@@ -70,20 +70,20 @@ public protocol Serializer: class {
     func serialize(values: [Double], forKeyPath keyPath: String)
     func serialize(values: [String], forKeyPath keyPath: String)
 
-    func deserialize<T: Serializable>() -> [T]?
-    func deserializeForKeyPath<T: Serializable>(keyPath: String) -> [T]?
-    func deserializeForKeyPath(keyPath: String) -> [Bool]?
-    func deserializeForKeyPath(keyPath: String) -> [Int16]?
-    func deserializeForKeyPath(keyPath: String) -> [Int32]?
-    func deserializeForKeyPath(keyPath: String) -> [Int64]?
-    func deserializeForKeyPath(keyPath: String) -> [Int]?
-    func deserializeForKeyPath(keyPath: String) -> [UInt16]?
-    func deserializeForKeyPath(keyPath: String) -> [UInt32]?
-    func deserializeForKeyPath(keyPath: String) -> [UInt64]?
-    func deserializeForKeyPath(keyPath: String) -> [UInt]?
-    func deserializeForKeyPath(keyPath: String) -> [Float]?
-    func deserializeForKeyPath(keyPath: String) -> [Double]?
-    func deserializeForKeyPath(keyPath: String) -> [String]?
+    func deserializeValue<T: Serializable>() -> [T]?
+    func deserializeValueForKeyPath<T: Serializable>(keyPath: String) -> [T]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Bool]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Int16]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Int32]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Int64]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Int]?
+    func deserializeValueForKeyPath(keyPath: String) -> [UInt16]?
+    func deserializeValueForKeyPath(keyPath: String) -> [UInt32]?
+    func deserializeValueForKeyPath(keyPath: String) -> [UInt64]?
+    func deserializeValueForKeyPath(keyPath: String) -> [UInt]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Float]?
+    func deserializeValueForKeyPath(keyPath: String) -> [Double]?
+    func deserializeValueForKeyPath(keyPath: String) -> [String]?
 
     // MARK: Optionals
 
