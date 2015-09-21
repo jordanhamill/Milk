@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Milk"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A common set of simple interfaces and operators for implementing serialization in Swift."
   s.homepage     = "https://github.com/jordanhamill/Milk"
   s.license      = 'MIT'
