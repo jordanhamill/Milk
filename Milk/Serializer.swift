@@ -19,6 +19,20 @@ import Foundation
 */
 public protocol Serializer: class {
 
+    /**
+        Init a new Serializer ready for serializing new values.
+    */
+    init()
+
+    /**
+        Transforms a binary representation of the format into a `Serializer` instance ready to deserialize objects.
+
+        - parameter data: Data which must be in the same format as that returned from `toData()`.
+
+        - returns: If the data is valid, a `Serializer` instance ready for deserialization. If the data is invalid an error can be thrown.
+    */
+    init?(data: NSData) throws
+
     // MARK: Serialization
 
     func serialize<T: Serializable>(value: T)
@@ -137,15 +151,6 @@ public protocol Serializer: class {
         - returns: The NSData if the current format is valid and can be transformed. Alternatively this method can throw an error.
     */
     func toData() throws -> NSData?
-
-    /**
-        Transforms a binary representation of the format into a `Serializer` instance ready to deserialize objects.
-
-        - parameter data: Data which must be in the same format as that returned from `toData()`.
-
-        - returns: If the data is valid, a `Serializer` instance ready for deserialization. If the data is invalid an error can be thrown.
-    */
-    static func fromData(data: NSData) throws -> Self?
 
     /**
         A convienence method that enables a concise serialization and deserialization syntax.
